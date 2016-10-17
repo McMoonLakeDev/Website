@@ -82,21 +82,29 @@ class userdo extends sql{
         }
         return $msg;
     }
-    /*
-     * 示例:
-    $key = 'okyo.cn';
-    $data = array('id' => 100, 'username' => 'customer', 'password' => 'e10adc3949ba59abbe56e057f20f883e');
-    $snarr = serialize($data);
-    $en = encrypt($data, $key);
-    $de = decrypt($en, $key);
-    echo "加密原型：";
-    print_r($data);
-    echo "
-    密钥：$key
+    /**
+     *  设置COOKIE
+     *
+     *  @access public
+     *  @param  string $key     要设置的COOKIE键名
+     *  @param  string $value   键名对应的值
+     *  @param  int    $expire  过期时间
+     *  @return void
+     */
+    function ecm_setcookie($key, $value, $expire = 0, $cookie_path=COOKIE_PATH, $cookie_domain=COOKIE_DOMAIN)
+    {
+        setcookie($key, $value, $expire, $cookie_path, $cookie_domain);
+    }
 
-    加密结果：$en
-
-    解密结果：";
-    print_r($de);
-    */
+    /**
+     *  获取COOKIE的值
+     *
+     *  @access public
+     *  @param  string $key    为空时将返回所有COOKIE
+     *  @return mixed
+     */
+    function ecm_getcookie($key = '')
+    {
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : 0;
+    }
 }
