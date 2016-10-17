@@ -1,11 +1,17 @@
 <?php
-require "userinfo.class.php";
+require "UserInfo.class.php";
 /*--------------------------------中央控制类-------------------------------*/
 /* 记录程序启动时间 */
 define('START_TIME', moonlake_time());
 
 /* 判断请求方式 */
 define('IS_POST', (strtoupper($_SERVER['REQUEST_METHOD']) == 'POST'));
+
+/*设置seo信息*/
+define('SetTitle',$MoonLake_Title);
+
+/*设置网址*/
+define('SetUrl',$SetUrl);
 
 
 /* 在部分IIS上会没有REQUEST_URI变量 */
@@ -21,17 +27,17 @@ else
         $_SERVER['REQUEST_URI'] .= '?' . $query_string;
     }
 }
-class moonlake extends userdo
-    {
-        private $real_ip;
-//        public function _counster(){
-//            init();
-//        }
+
+class MoonLake extends UserDo
+{
+        var $real_ip;
+        public function _counster($do){
+            init();
+        }
         function init(){
             $this->real_ip = $this->get_onlineip();
-            return $this->real_ip;
         }
-    }
+}
 
 /**
  * 危险 HTML代码过滤器
