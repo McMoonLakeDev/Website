@@ -10,7 +10,7 @@
  * @作者:   宋海阁
  */
 
-class page {
+class Page {
 
     private $myde_total;          //总记录数
     private $myde_size;           //一页显示的记录数

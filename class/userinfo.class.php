@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "sql.class.php";
-class userdo extends sql{
+class Userdo extends Sql{
     /*
      * 获取真实IP地址，无视代理
      */

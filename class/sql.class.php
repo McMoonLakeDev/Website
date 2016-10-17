@@ -1,6 +1,6 @@
 <?php
     include "./includes/common.php";
-    class sql
+    class Sql
     {
         /*
          * 数据查询
